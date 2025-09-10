@@ -13,7 +13,12 @@ $wrapper_classes .= ( true === get_theme_mod( 'display_title_and_tagline', true 
 $wrapper_classes .= has_nav_menu( 'primary' ) ? ' has-menu' : '';
 ?>
 
-<header class="tcp-header">
+<div class="bg-gradient-to-r flex items-center justify-center gap-8 text-white from-[#132148] to-[#2E50AE] p-2">
+	<p>direccion</p>
+	<p>direccion</p>
+	<p>direccion</p>
+</div>
+<header class="tcp-header max-w-[1110px] mx-auto h-[71px] relative z-50">
 	<div class="max-w-[1200px] mx-auto px-4 xl:px-0">
 		<div class="tcp-header__wrapper">
 			<button id="menuOpener" class="tcp-header__toggler">

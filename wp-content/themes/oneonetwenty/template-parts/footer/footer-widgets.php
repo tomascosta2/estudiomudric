@@ -9,7 +9,7 @@
 
 if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 
-	<footer class="tcp-footer">
+	<footer class="tcp-footer bg-gradient-to-r from-[#132148] to-[#2E50AE]">
 		<div class="max-w-[1200px] mx-auto px-4 xl:px-0">
 			<div class="tcp-footer__wrapper">
 				<?php dynamic_sidebar( 'sidebar-1' ); ?>

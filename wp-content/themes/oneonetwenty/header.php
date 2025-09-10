@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 	<link rel="stylesheet" href="<?= get_template_directory_uri() . '/assets/css/custom.css' ?>">
 	<script src="https://cdn.tailwindcss.com"></script>
+	<link href="https://fonts.cdnfonts.com/css/arquitecta" rel="stylesheet">
 </head>
 
 <body <?php body_class(); ?>>

@@ -31,7 +31,7 @@ get_header();
         <?php /* <p class="bg-[#C2996B] text-white px-8 py-2 w-fit">Arriba del titulo</p> */ ?>
         <?php if(!empty($hero['titulo'])): ?>
           <h1 class="text-white leading-[110%] my-4 text-[90px] font-semibold">
-            <?php echo $esc_wysiwyg($hero['titulo']); ?>
+            <?php echo $hero['titulo']; ?>
           </h1>
         <?php endif; ?>
 

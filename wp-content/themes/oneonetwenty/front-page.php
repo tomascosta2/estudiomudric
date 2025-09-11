@@ -14,6 +14,8 @@ $areas_legales  = get_field('areas_legales') ?: [];
 $equipo         = get_field('equipo') ?: [];
 $contacto       = get_field('contacto') ?: [];
 
+print_r($hero);
+
 get_header();
 ?>
 

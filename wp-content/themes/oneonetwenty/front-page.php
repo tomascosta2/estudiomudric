@@ -21,7 +21,7 @@ get_header();
 
 <!-- Hero -->
 <?php
-  $hero_bg = !empty($hero['fondo']) ? ' style="background-image:url(\''.$img_url($hero['fondo']).'\'); background-size:cover; background-position:center;"' : '';
+  $hero_bg = !empty($hero['fondo']) ? ' style="background-image:url(\''.$hero['fondo']['url'].'\'); background-size:cover; background-position:center;"' : '';
 ?>
 <section class="-mt-[71px] py-[120px] h-[1030px] bg-red-700 p-4"<?php echo $hero_bg; ?>>
   <div class="max-w-[1120px] mx-auto">

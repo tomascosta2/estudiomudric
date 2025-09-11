@@ -17,31 +17,6 @@ $contacto       = get_field('contacto') ?: [];
 get_header();
 ?>
 
-<?php
-  // Helpers para sanitizar
-  $esc_wysiwyg = function($html) {
-    // Permitir HTML básico de WP Editor
-    return wp_kses_post($html);
-  };
-  $img_url = function($imgField, $size = 'full') {
-    if (is_array($imgField) && !empty($imgField['ID'])) {
-      return esc_url(wp_get_attachment_image_url($imgField['ID'], $size));
-    }
-    if (is_array($imgField) && !empty($imgField['url'])) {
-      return esc_url($imgField['url']);
-    }
-    return '';
-  };
-  $link_a = function($link, $classes='') {
-    if (!is_array($link) || empty($link['url'])) return '';
-    $title  = !empty($link['title']) ? esc_html($link['title']) : __('Ver más','textdomain');
-    $url    = esc_url($link['url']);
-    $target = !empty($link['target']) ? ' target="'.esc_attr($link['target']).'" rel="noopener"' : '';
-    $cls    = $classes ? ' class="'.esc_attr($classes).'"' : '';
-    return '<a href="'.$url.'"'.$target.$cls.'>'.$title.'</a>';
-  };
-?>
-
 <!-- Hero -->
 <?php
   $hero_bg = !empty($hero['fondo']) ? ' style="background-image:url(\''.$img_url($hero['fondo']).'\'); background-size:cover; background-position:center;"' : '';

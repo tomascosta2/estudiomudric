@@ -1,0 +1,20 @@
+name: estudiomudric
+recipe: wordpress
+proxy:
+  appserver:
+    - estudiomudric.local
+config:
+  php: '8.0'
+  via: apache
+  webroot: .
+  xdebug: true
+services:
+  database:
+    portforward: true
+    type: mysql
+    creds:
+      user: estudiomudricdb
+      password: estudiomudricdb
+      database: estudiomudricdb
+  pma:
+    type: phpmyadmin

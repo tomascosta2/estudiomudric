@@ -37,7 +37,7 @@ get_header();
 
         <?php if(!empty($hero['bajada'])): ?>
           <div class="text-white max-w-[590px]">
-            <?php echo $esc_wysiwyg($hero['bajada']); ?>
+            <?php echo $hero['bajada']; ?>
           </div>
         <?php endif; ?>
 

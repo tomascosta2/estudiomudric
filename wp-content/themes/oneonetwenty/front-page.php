@@ -61,7 +61,7 @@ $datos_de  = !empty($datos['de']) ? esc_html($datos['de']) : '';
 ?>
 <section class="z-50 relative">
   <div class="bg-green-400 -mt-[200px] mx-auto overflow-clip rounded-[5px] max-w-[1000px]">
-    <div class="flex">
+    <div class="flex px-[95px] py-[22px]">
       <div>
         <span><?php echo $datos_num ? $datos_num . ' ' : ''; ?></span>
         <span><?php echo $datos_de; ?></span>        

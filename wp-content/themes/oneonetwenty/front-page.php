@@ -61,13 +61,15 @@ $datos_de  = !empty($datos['de']) ? esc_html($datos['de']) : '';
 ?>
 <section class="z-50 relative">
   <div class="bg-green-400 -mt-[200px] mx-auto overflow-clip rounded-[5px] max-w-[1000px]">
-    <div class="flex px-[95px] gap-8 py-[22px]">
+    <div class="flex items-center px-[95px] gap-8 pb-[45px] pt-[22px]">
       <div>
         <span class="text-center text-[250px] leading-[60%] block font-black -tracking-[24px]"><?php echo $datos_num ? $datos_num . ' ' : ''; ?></span>
         <span class="text-center text-[100px] leading-[60%] block font-medium text-[#C2996B] -tracking-[1%]"><?php echo $datos_de; ?></span>        
       </div>
       <?php if ($datos_img): ?>
-        <img class="max-w-full w-full" src="<?php echo $datos_img; ?>" alt="">
+        <div>
+          <img class="max-w-full w-full" src="<?php echo $datos_img; ?>" alt="">
+        </div>
       <?php endif; ?>
     </div>
     <?php if ($datos_num || $datos_de): ?>

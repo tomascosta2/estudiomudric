@@ -40,10 +40,6 @@ get_header();
         <?php endif; ?>
 
         <?php if(!empty($hero['boton'])): ?>
-          <?php echo $link_a(
-            $hero['boton'],
-            'bg-gradient-to-b py-6 px-12 rounded-lg block w-fit text-white font-black uppercase mt-4 from-[#132148] to-[#2E50AE]'
-          ); ?>
           <a href="<?php echo $hero['boton']['url'] ?>"><?php echo $hero['boton']['title'] ?></a>
         <?php endif; ?>
       </div>

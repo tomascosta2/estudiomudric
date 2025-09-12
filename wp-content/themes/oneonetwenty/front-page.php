@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Template: Home (Landing EMS)
  * Requiere ACF y el grupo "Home (Landing EMS)"
@@ -20,17 +19,17 @@ get_header();
 
 <!-- Hero -->
 <?php
-$hero_bg = !empty($hero['fondo']) ? ' style="background-image:url(\'' . $hero['fondo']['url'] . '\'); background-size:cover; background-position:center;"' : '';
+$hero_bg = !empty($hero['fondo']) && !empty($hero['fondo']['url'])
+  ? ' style="background-image:url(\'' . esc_url($hero['fondo']['url']) . '\'); background-size:cover; background-position:center;"'
+  : '';
 ?>
-<section class="-mt-[71px] py-[120px] h-[1030px] bg-red-700 p-4" <?php echo $hero_bg; ?>>
+<section class="-mt-[71px] py-[120px] h-[1030px] bg-red-700 p-4"<?php echo $hero_bg; ?>>
   <div class="max-w-[1120px] mx-auto">
     <div>
       <div class="max-w-[850px]">
-        <!-- Si querés un badge, podrías agregarlo a ACF; por ahora lo oculto si no existe -->
-        <?php /* <p class="bg-[#C2996B] text-white px-8 py-2 w-fit">Arriba del titulo</p> */ ?>
         <?php if (!empty($hero['titulo'])): ?>
           <h1 class="text-white leading-[110%] my-4 text-[90px] font-semibold">
-            <?php echo strip_tags($hero['titulo']); ?>
+            <?php echo esc_html(strip_tags($hero['titulo'])); ?>
           </h1>
         <?php endif; ?>
 
@@ -40,12 +39,13 @@ $hero_bg = !empty($hero['fondo']) ? ' style="background-image:url(\'' . $hero['f
           </div>
         <?php endif; ?>
 
-        <?php if (!empty($hero['boton'])): ?>
-          <a 
+        <?php if (!empty($hero['boton']) && !empty($hero['boton']['url'])): ?>
+          <a
             class="bg-gradient-to-b py-6 px-12 rounded-lg block w-fit text-white font-black uppercase mt-4 from-[#132148] to-[#2E50AE]"
-            href="<?php echo $hero['boton']['url'] ?>"
+            href="<?php echo esc_url($hero['boton']['url']); ?>"
+            <?php echo !empty($hero['boton']['target']) ? ' target="'.esc_attr($hero['boton']['target']).'" rel="noopener"' : ''; ?>
           >
-            <?php echo $hero['boton']['title'] ?>
+            <?php echo !empty($hero['boton']['title']) ? esc_html($hero['boton']['title']) : 'Ver más'; ?>
           </a>
         <?php endif; ?>
       </div>
@@ -55,7 +55,7 @@ $hero_bg = !empty($hero['fondo']) ? ' style="background-image:url(\'' . $hero['f
 
 <!-- Datos -->
 <?php
-$datos_img = !empty($datos['imagen']) ? $img_url($datos['imagen'], 'large') : '';
+$datos_img = (!empty($datos['imagen']) && !empty($datos['imagen']['url'])) ? esc_url($datos['imagen']['url']) : '';
 $datos_num = isset($datos['cantidad']) ? esc_html($datos['cantidad']) : '';
 $datos_de  = !empty($datos['de']) ? esc_html($datos['de']) : '';
 ?>
@@ -67,8 +67,7 @@ $datos_de  = !empty($datos['de']) ? esc_html($datos['de']) : '';
     <?php if ($datos_num || $datos_de): ?>
       <div class="bg-gradient-to-r py-2 from-[#C2996B] to-[#5C4933]">
         <p class="text-white leading-[110%] font-semibold text-[32px] text-center">
-          <?php echo $datos_num ? $datos_num . ' ' : ''; ?>
-          <?php echo $datos_de; ?>
+          <?php echo $datos_num ? $datos_num . ' ' : ''; ?><?php echo $datos_de; ?>
         </p>
       </div>
     <?php endif; ?>
@@ -78,7 +77,7 @@ $datos_de  = !empty($datos['de']) ? esc_html($datos['de']) : '';
 <!-- Nuestros Servicios -->
 <?php
 $srv_titulo = !empty($servicios['titulo']) ? esc_html($servicios['titulo']) : '';
-$srv_items  = !empty($servicios['items']) && is_array($servicios['items']) ? $servicios['items'] : [];
+$srv_items  = (!empty($servicios['items']) && is_array($servicios['items'])) ? $servicios['items'] : [];
 ?>
 <section class="py-[126px] bg-gradient-to-t from-[#2E50AE] to-[#132148] -mt-[30px]">
   <div class="max-w-[1120px] mx-auto">
@@ -87,17 +86,15 @@ $srv_items  = !empty($servicios['items']) && is_array($servicios['items']) ? $se
         <?php if ($srv_titulo): ?>
           <h2 class="text-white text-[48px] uppercase leading-[120%] font-medium">
             <?php
-            // Mantener “Nuestros <strong>Servicios</strong>” si el título coincide
             $partes = explode(' ', $srv_titulo, 2);
             if (count($partes) === 2) {
               echo esc_html($partes[0]) . ' <strong class="font-black">' . esc_html($partes[1]) . '</strong>';
             } else {
-              echo esc_html($srv_titulo);
+              echo $srv_titulo;
             }
             ?>
           </h2>
         <?php endif; ?>
-        <!-- Si querés una bajada acá, podés añadir un campo en ACF; por ahora queda vacío -->
       </div>
       <div class="col-span-2 md:ps-[150px]">
         <?php if ($srv_items): ?>
@@ -111,7 +108,7 @@ $srv_items  = !empty($servicios['items']) && is_array($servicios['items']) ? $se
                 <?php endif; ?>
                 <?php if (!empty($item['descripcion'])): ?>
                   <div class="text-[#132148] opacity-80 leading-[140%]">
-                    <?php echo $esc_wysiwyg($item['descripcion']); ?>
+                    <?php echo $item['descripcion']; ?>
                   </div>
                 <?php endif; ?>
               </div>
@@ -134,21 +131,20 @@ $srv_items  = !empty($servicios['items']) && is_array($servicios['items']) ? $se
 <?php
 $his_titulo = !empty($historia['titulo']) ? esc_html($historia['titulo']) : '';
 $his_texto  = !empty($historia['texto']) ? $historia['texto'] : '';
-$his_img1   = !empty($historia['imagen_1']) ? $img_url($historia['imagen_1'], 'large') : '';
-$his_img2   = !empty($historia['imagen_2']) ? $img_url($historia['imagen_2'], 'large') : '';
-$his_img3   = !empty($historia['imagen_3']) ? $img_url($historia['imagen_3'], 'large') : '';
+$his_img1   = (!empty($historia['imagen_1']) && !empty($historia['imagen_1']['url'])) ? esc_url($historia['imagen_1']['url']) : '';
+$his_img2   = (!empty($historia['imagen_2']) && !empty($historia['imagen_2']['url'])) ? esc_url($historia['imagen_2']['url']) : '';
+$his_img3   = (!empty($historia['imagen_3']) && !empty($historia['imagen_3']['url'])) ? esc_url($historia['imagen_3']['url']) : '';
 ?>
 <section class="py-[45px] bg-gradient-to-t from-[#5C4933] to-[#C2996B]">
   <div class="max-w-[1120px] mx-auto px-4">
     <?php if ($his_titulo): ?>
       <h2 class="text-white text-[64px] text-center uppercase leading-[120%] font-medium">
         <?php
-        // “Nuestra <strong>Historia</strong>” si coincide
         $partes = explode(' ', $his_titulo, 2);
         if (count($partes) === 2) {
           echo esc_html($partes[0]) . ' <strong class="font-black">' . esc_html($partes[1]) . '</strong>';
         } else {
-          echo esc_html($his_titulo);
+          echo $his_titulo;
         }
         ?>
       </h2>
@@ -156,7 +152,7 @@ $his_img3   = !empty($historia['imagen_3']) ? $img_url($historia['imagen_3'], 'l
 
     <?php if ($his_texto): ?>
       <div class="max-w-[670px] leading-[120%] columns-2 gap-4 mx-auto text-[16px] mt-4 text-white">
-        <?php echo $esc_wysiwyg($his_texto); ?>
+        <?php echo $his_texto; ?>
       </div>
     <?php endif; ?>
 
@@ -182,7 +178,7 @@ $his_img3   = !empty($historia['imagen_3']) ? $img_url($historia['imagen_3'], 'l
 <?php
 $al_titulo = !empty($areas_legales['titulo']) ? esc_html($areas_legales['titulo']) : '';
 $al_bajada = !empty($areas_legales['bajada']) ? esc_html($areas_legales['bajada']) : '';
-$al_items  = !empty($areas_legales['items']) && is_array($areas_legales['items']) ? $areas_legales['items'] : [];
+$al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'])) ? $areas_legales['items'] : [];
 ?>
 <section class="py-[80px] bg-gradient-to-t from-[#555555] to-[#BBBBBB]">
   <div class="max-w-[900px] mx-auto px-4">
@@ -207,10 +203,9 @@ $al_items  = !empty($areas_legales['items']) && is_array($areas_legales['items']
           <div class="col-span-2">
             <?php if (!empty($item['texto'])): ?>
               <div class="leading-[110%] text-[18px]">
-                <?php echo $esc_wysiwyg($item['texto']); ?>
+                <?php echo $item['texto']; ?>
               </div>
             <?php endif; ?>
-            <!-- No hay botón en ACF para esta sección; si lo querés, lo agregamos -->
           </div>
         </div>
       <?php endforeach; ?>
@@ -220,9 +215,9 @@ $al_items  = !empty($areas_legales['items']) && is_array($areas_legales['items']
 
 <!-- Nuestro Equipo -->
 <?php
-$eq_titulo  = !empty($equipo['titulo']) ? esc_html($equipo['titulo']) : '';
-$eq_bajada  = !empty($equipo['bajada']) ? esc_html($equipo['bajada']) : '';
-$eq_miembros = !empty($equipo['miembros']) && is_array($equipo['miembros']) ? $equipo['miembros'] : [];
+$eq_titulo   = !empty($equipo['titulo']) ? esc_html($equipo['titulo']) : '';
+$eq_bajada   = !empty($equipo['bajada']) ? esc_html($equipo['bajada']) : '';
+$eq_miembros = (!empty($equipo['miembros']) && is_array($equipo['miembros'])) ? $equipo['miembros'] : [];
 ?>
 <section class="py-[80px]">
   <div class="max-w-[900px] mx-auto px-4">
@@ -233,7 +228,7 @@ $eq_miembros = !empty($equipo['miembros']) && is_array($equipo['miembros']) ? $e
         if (count($partes) === 2) {
           echo esc_html($partes[0]) . ' <strong class="font-black">' . esc_html($partes[1]) . '</strong>';
         } else {
-          echo esc_html($eq_titulo);
+          echo $eq_titulo;
         }
         ?>
       </h2>
@@ -249,7 +244,7 @@ $eq_miembros = !empty($equipo['miembros']) && is_array($equipo['miembros']) ? $e
       <div class="grid grid-cols-1 md:grid-cols-3 gap-[98px] mt-12">
         <?php foreach ($eq_miembros as $m): ?>
           <?php
-          $foto = !empty($m['Foto']) ? $img_url($m['Foto'], 'large') : '';
+          $foto = (!empty($m['Foto']) && !empty($m['Foto']['url'])) ? esc_url($m['Foto']['url']) : '';
           ?>
           <div class="overflow-clip rounded-[12px]">
             <?php if ($foto): ?>
@@ -267,8 +262,6 @@ $eq_miembros = !empty($equipo['miembros']) && is_array($equipo['miembros']) ? $e
         <?php endforeach; ?>
       </div>
     <?php endif; ?>
-
-    <!-- Bloques de cita/texto: si querés que sean ACF, añadimos campos; por ahora omitidos -->
   </div>
 </section>
 
@@ -281,9 +274,8 @@ $eq_miembros = !empty($equipo['miembros']) && is_array($equipo['miembros']) ? $e
 
 <!-- Contacto -->
 <?php
-$ct_titulo = !empty($contacto['titulo']) ? esc_html($contacto['titulo']) : '';
-// En tu JSON, "direccion" guarda el SRC del iframe (URL de Google Maps)
-$ct_maps_src = !empty($contacto['direccion']) ? esc_url($contacto['direccion']) : '';
+$ct_titulo   = !empty($contacto['titulo']) ? esc_html($contacto['titulo']) : '';
+$ct_maps_src = !empty($contacto['direccion']) ? esc_url($contacto['direccion']) : ''; // en tu JSON es el SRC del iframe
 ?>
 <section>
   <div class="grid grid-cols-6">

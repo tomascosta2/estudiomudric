@@ -30,7 +30,7 @@ $hero_bg = !empty($hero['fondo']) ? ' style="background-image:url(\'' . $hero['f
         <?php /* <p class="bg-[#C2996B] text-white px-8 py-2 w-fit">Arriba del titulo</p> */ ?>
         <?php if (!empty($hero['titulo'])): ?>
           <h1 class="text-white leading-[110%] my-4 text-[90px] font-semibold">
-            <?php echo esc_html($hero['titulo']); ?>
+            <?php echo strip_tags($hero['titulo']); ?>
           </h1>
         <?php endif; ?>
 

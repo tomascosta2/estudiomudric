@@ -14,8 +14,6 @@ $areas_legales  = get_field('areas_legales') ?: [];
 $equipo         = get_field('equipo') ?: [];
 $contacto       = get_field('contacto') ?: [];
 
-print_r($hero);
-
 get_header();
 ?>
 
@@ -46,6 +44,7 @@ get_header();
             $hero['boton'],
             'bg-gradient-to-b py-6 px-12 rounded-lg block w-fit text-white font-black uppercase mt-4 from-[#132148] to-[#2E50AE]'
           ); ?>
+          <a href="<?php echo $hero['boton']['url'] ?>"><?php echo $hero['boton']['title'] ?></a>
         <?php endif; ?>
       </div>
     </div>

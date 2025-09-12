@@ -67,7 +67,7 @@ $datos_de  = !empty($datos['de']) ? esc_html($datos['de']) : '';
         <span><?php echo $datos_de; ?></span>        
       </div>
       <?php if ($datos_img): ?>
-        <img class="min-h-[300px] max-w-full w-full object-cover" src="<?php echo $datos_img; ?>" alt="">
+        <img class="max-w-full w-full object-cover" src="<?php echo $datos_img; ?>" alt="">
       <?php endif; ?>
     </div>
     <?php if ($datos_num || $datos_de): ?>

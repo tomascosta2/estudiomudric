@@ -64,7 +64,7 @@ $datos_de  = !empty($datos['de']) ? esc_html($datos['de']) : '';
     <div class="flex px-[95px] gap-8 py-[22px]">
       <div>
         <span class="text-[200px] font-black -tracking-[1%]"><?php echo $datos_num ? $datos_num . ' ' : ''; ?></span>
-        <span class="text-[50px] font-medium text-[#C2996B]"><?php echo $datos_de; ?></span>        
+        <span class="text-[80px] font-medium text-[#C2996B] -tracking-[1%]"><?php echo $datos_de; ?></span>        
       </div>
       <?php if ($datos_img): ?>
         <img class="max-w-full w-full object-cover" src="<?php echo $datos_img; ?>" alt="">

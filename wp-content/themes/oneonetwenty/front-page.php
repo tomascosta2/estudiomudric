@@ -59,15 +59,15 @@ $datos_img = (!empty($datos['imagen']) && !empty($datos['imagen']['url'])) ? esc
 $datos_num = isset($datos['cantidad']) ? esc_html($datos['cantidad']) : '';
 $datos_de  = !empty($datos['de']) ? esc_html($datos['de']) : '';
 ?>
-<section class="z-50 relative">
-  <div class="bg-green-400 -mt-[200px] mx-auto overflow-clip rounded-[5px] max-w-[1000px]">
+<section class="z-40 relative">
+  <div class="bg-white -mt-[200px] mx-auto overflow-clip rounded-[5px] max-w-[1000px]">
     <div class="flex items-center px-[95px] pb-[45px] pt-[22px]">
       <div class="pr-[58px]">
         <span class="text-center text-[250px] leading-[60%] block font-black -tracking-[24px]"><?php echo $datos_num ? $datos_num . ' ' : ''; ?></span>
         <span class="text-center text-[100px] leading-[60%] block font-medium text-[#C2996B] -tracking-[1%]"><?php echo $datos_de; ?></span>        
       </div>
       <?php if ($datos_img): ?>
-        <div class="ps-[68px] border-l border-2 border-[#132148]">
+        <div class="ps-[68px] border-l-2 border-[#132148]">
           <img class="max-w-full w-full" src="<?php echo $datos_img; ?>" alt="">
         </div>
       <?php endif; ?>

@@ -186,6 +186,13 @@ $his_img3   = (!empty($historia['imagen_3']) && !empty($historia['imagen_3']['ur
   </div>
 </section>
 
+<!-- Divider paleta 2 :) -->
+<div class="h-[23px] flex">
+  <div class="w-[25%] h-full bg-white"></div>
+  <div class="w-[55%] h-full bg-gradient-to-r from-[#C2996B] to-[#5C4933]"></div>
+  <div class="w-[20%] h-full bg-gradient-to-r from-[#2E50AE] to-[#132148]"></div>
+</div>
+
 <!-- Áreas Legales -->
 <?php
 $al_titulo = !empty($areas_legales['titulo']) ? esc_html($areas_legales['titulo']) : '';
@@ -284,7 +291,7 @@ $eq_bajada_cita = !empty($equipo['bajada_cita']) ? $equipo['bajada_cita'] : '';
     <?php endif; ?>
 		<?php if ($eq_bajada_cita) : ?>
       <p class="text-[#132148]/80 max-w-[700px] mx-auto text-center leading-[120%] mt-4">
-        <?php echo strip_tags($eq_cita) ?>
+        <?php echo strip_tags($eq_bajada_cita) ?>
       </p>
     <?php endif; ?>
   </div>

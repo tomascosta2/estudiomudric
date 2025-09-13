@@ -65,7 +65,7 @@ $datos_bajada = $datos['bajada'];
     <div class="flex items-center px-[95px] pb-[45px] pt-[22px]">
       <div class="pr-[58px] py-[40px]">
         <span
-          class="text-center text-[250px] leading-[60%] block font-black -tracking-[24px] bg-gradient-to-b from-[#0a1a3f] to-[#1e48a8] text-transparent bg-clip-text">
+          class="text-center text-[250px] leading-[74%] block md:w-[270px] font-black -tracking-[24px] bg-gradient-to-b from-[#0a1a3f] to-[#1e48a8] text-transparent bg-clip-text">
           <?php echo $datos_num ? $datos_num . ' ' : ''; ?>
         </span>
         <span class="text-center text-[100px] -mt-8 leading-[60%] block font-medium text-[#C2996B] -tracking-[1%]"><?php echo $datos_de; ?></span>        

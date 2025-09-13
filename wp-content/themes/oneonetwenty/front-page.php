@@ -67,12 +67,12 @@ $datos_de  = !empty($datos['de']) ? esc_html($datos['de']) : '';
         <span class="text-center text-[100px] leading-[60%] block font-medium text-[#C2996B] -tracking-[1%]"><?php echo $datos_de; ?></span>        
       </div>
       <?php if ($datos_img): ?>
-        <div>
+        <div class="ps-[68px] border-s border-2 border-[#111]">
           <img class="max-w-full w-full" src="<?php echo $datos_img; ?>" alt="">
         </div>
       <?php endif; ?>
     </div>
-    <?php if ($datos_num || $datos_de): ?>
+    <?php if ($a): ?>
       <div class="bg-gradient-to-r py-2 from-[#C2996B] to-[#5C4933]">
         <p class="text-white leading-[110%] font-semibold text-[32px] text-center">
         </p>

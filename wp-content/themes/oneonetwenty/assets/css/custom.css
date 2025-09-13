@@ -90,7 +90,7 @@ h1.tcp-title {
 	background-color: transparent !important;
 }
 .tcp-navigation__list a {
-	color: #F5F5F5;
+	color: #132148;
 }
 .tcp-navigation__list a:hover {
 	color: var(--primary-color) !important;

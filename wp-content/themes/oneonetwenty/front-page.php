@@ -68,7 +68,7 @@ $datos_bajada = $datos['bajada'];
           class="text-center text-[250px] leading-[74%] block md:w-[270px] font-black -tracking-[24px] bg-gradient-to-b from-[#0a1a3f] to-[#1e48a8] text-transparent bg-clip-text">
           <?php echo $datos_num ? $datos_num . ' ' : ''; ?>
         </span>
-        <span class="text-center text-[100px] -mt-8 leading-[60%] block font-medium text-[#C2996B] -tracking-[1%]"><?php echo $datos_de; ?></span>        
+        <span class="text-center text-[100px] -mt-10 leading-[60%] block font-medium text-[#C2996B] -tracking-[1%]"><?php echo $datos_de; ?></span>        
       </div>
       <?php if ($datos_img): ?>
         <div class="ps-[68px] py-[40px] border-l-2 border-[#132148]">
@@ -224,6 +224,11 @@ $al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'
               <div class="leading-[110%] text-[18px]">
                 <?php echo $item['texto']; ?>
               </div>
+            <?php endif; ?>
+            <?php if (!empty($item['boton'])): ?>
+              <a class="bg-gradient-to-t from-[#132148] to-[#2E50AE] px-[40px] py-2 rounded-md text-white font-semibold" href="<?php echo $item['boton']['url']; ?>">
+                <?php echo $item['boton']['title']; ?>
+              </a>            
             <?php endif; ?>
           </div>
         </div>

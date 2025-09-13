@@ -61,7 +61,7 @@ $datos_de  = !empty($datos['de']) ? esc_html($datos['de']) : '';
 $datos_bajada = $datos['bajada'];
 ?>
 <section class="z-40 relative">
-  <div class="bg-white -mt-[200px] mx-auto overflow-clip rounded-[5px] max-w-[1000px]">
+  <div class="bg-white -mt-[140px] mx-auto overflow-clip rounded-[5px] max-w-[1000px]">
     <div class="flex items-center px-[95px] pb-[45px] pt-[22px]">
       <div class="pr-[58px] py-[40px]">
         <span

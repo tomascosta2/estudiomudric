@@ -16,6 +16,8 @@ $wrapper_classes .= has_nav_menu('primary') ? ' has-menu' : '';
 $home_id = (int) get_option('page_on_front');
 
 $top_bar = $home_id ? get_field('top_bar', $home_id) : null;
+
+print_r($top_bar);
 ?>
 
 <div class="sticky top-0 z-50">

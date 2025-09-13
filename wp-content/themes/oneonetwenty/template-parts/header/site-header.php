@@ -13,16 +13,22 @@ $wrapper_classes .= has_custom_logo() ? ' has-logo' : '';
 $wrapper_classes .= (true === get_theme_mod('display_title_and_tagline', true)) ? ' has-title-and-tagline' : '';
 $wrapper_classes .= has_nav_menu('primary') ? ' has-menu' : '';
 
-$top_bar = get_field('prueba', 10);
-
-print_r($top_bar);
+$direction = get_field('direccion', 10);
+$phone = get_field('telefono', 10);
+$email = get_field('correo', 10);
 ?>
 
 <div class="sticky top-0 z-50">
 	<div class="bg-gradient-to-r flex items-center justify-center gap-8 text-white from-[#132148] to-[#2E50AE] p-2">
-		<span><?php echo strip_tags($top_bar['direccion']) ?></span>
-		<span><?php echo strip_tags($top_bar['telefono']) ?></span>
-		<span><?php echo strip_tags($top_bar['correo']) ?></span>
+		<?php if ($direction) : ?>
+		<span><?php echo strip_tags($direction) ?></span>
+		<?php endif; ?>
+		<?php if ($phone) : ?>
+		<span><?php echo strip_tags($phone) ?></span>
+		<?php endif; ?>
+		<?php if ($email) : ?>
+		<span><?php echo strip_tags($email) ?></span>
+		<?php endif; ?>
 	</div>
 	<header class="tcp-header max-w-[1110px] mx-auto h-[71px] relative z-50 px-4">
 		<div class="max-w-[1200px] mx-auto px-4 xl:px-0">

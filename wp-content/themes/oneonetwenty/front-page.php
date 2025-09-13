@@ -58,23 +58,28 @@ $hero_bg = !empty($hero['fondo']) && !empty($hero['fondo']['url'])
 $datos_img = (!empty($datos['imagen']) && !empty($datos['imagen']['url'])) ? esc_url($datos['imagen']['url']) : '';
 $datos_num = isset($datos['cantidad']) ? esc_html($datos['cantidad']) : '';
 $datos_de  = !empty($datos['de']) ? esc_html($datos['de']) : '';
+$datos_bajada = $datos['bajada'];
 ?>
 <section class="z-40 relative">
   <div class="bg-white -mt-[200px] mx-auto overflow-clip rounded-[5px] max-w-[1000px]">
     <div class="flex items-center px-[95px] pb-[45px] pt-[22px]">
-      <div class="pr-[58px]">
-        <span class="text-center text-[250px] leading-[60%] block font-black -tracking-[24px]"><?php echo $datos_num ? $datos_num . ' ' : ''; ?></span>
-        <span class="text-center text-[100px] leading-[60%] block font-medium text-[#C2996B] -tracking-[1%]"><?php echo $datos_de; ?></span>        
+      <div class="pr-[58px] py-[40px]">
+        <span
+          class="text-center text-[250px] leading-[60%] block font-black -tracking-[24px] bg-gradient-to-b from-[#0a1a3f] to-[#1e48a8] text-transparent bg-clip-text">
+          <?php echo $datos_num ? $datos_num . ' ' : ''; ?>
+        </span>
+        <span class="text-center text-[100px] -mt-8 leading-[60%] block font-medium text-[#C2996B] -tracking-[1%]"><?php echo $datos_de; ?></span>        
       </div>
       <?php if ($datos_img): ?>
-        <div class="ps-[68px] border-l-2 border-[#132148]">
+        <div class="ps-[68px] py-[40px] border-l-2 border-[#132148]">
           <img class="max-w-full w-full" src="<?php echo $datos_img; ?>" alt="">
         </div>
       <?php endif; ?>
     </div>
-    <?php if ($a): ?>
+    <?php if ($datos_bajada): ?>
       <div class="bg-gradient-to-r py-2 from-[#C2996B] to-[#5C4933]">
         <p class="text-white leading-[110%] font-semibold text-[32px] text-center">
+          <?php echo strip_tags($datos_bajada) ?>
         </p>
       </div>
     <?php endif; ?>
@@ -86,7 +91,7 @@ $datos_de  = !empty($datos['de']) ? esc_html($datos['de']) : '';
 $srv_titulo = !empty($servicios['titulo']) ? esc_html($servicios['titulo']) : '';
 $srv_items  = (!empty($servicios['items']) && is_array($servicios['items'])) ? $servicios['items'] : [];
 ?>
-<section class="py-[126px] bg-gradient-to-t from-[#2E50AE] to-[#132148] -mt-[30px]">
+<section id="servicios" class="py-[126px] bg-gradient-to-t from-[#2E50AE] to-[#132148] -mt-[30px]">
   <div class="max-w-[1120px] mx-auto">
     <div class="grid grid-cols-3 gap-8">
       <div>
@@ -142,7 +147,7 @@ $his_img1   = (!empty($historia['imagen_1']) && !empty($historia['imagen_1']['ur
 $his_img2   = (!empty($historia['imagen_2']) && !empty($historia['imagen_2']['url'])) ? esc_url($historia['imagen_2']['url']) : '';
 $his_img3   = (!empty($historia['imagen_3']) && !empty($historia['imagen_3']['url'])) ? esc_url($historia['imagen_3']['url']) : '';
 ?>
-<section class="py-[45px] bg-gradient-to-t from-[#5C4933] to-[#C2996B]">
+<section id="nosotros" class="py-[45px] bg-gradient-to-t from-[#5C4933] to-[#C2996B]">
   <div class="max-w-[1120px] mx-auto px-4">
     <?php if ($his_titulo): ?>
       <h2 class="text-white text-[64px] text-center uppercase leading-[120%] font-medium">
@@ -187,7 +192,7 @@ $al_titulo = !empty($areas_legales['titulo']) ? esc_html($areas_legales['titulo'
 $al_bajada = !empty($areas_legales['bajada']) ? esc_html($areas_legales['bajada']) : '';
 $al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'])) ? $areas_legales['items'] : [];
 ?>
-<section class="py-[80px] bg-gradient-to-t from-[#555555] to-[#BBBBBB]">
+<section id="areas" class="py-[80px] bg-gradient-to-t from-[#555555] to-[#BBBBBB]">
   <div class="max-w-[900px] mx-auto px-4">
     <?php if ($al_titulo): ?>
       <h2 class="text-white text-[64px] text-center uppercase leading-[120%] font-medium">
@@ -225,8 +230,10 @@ $al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'
 $eq_titulo   = !empty($equipo['titulo']) ? esc_html($equipo['titulo']) : '';
 $eq_bajada   = !empty($equipo['bajada']) ? esc_html($equipo['bajada']) : '';
 $eq_miembros = (!empty($equipo['miembros']) && is_array($equipo['miembros'])) ? $equipo['miembros'] : [];
+$eq_cita = !empty($equipo['cita']) ? $equipo['cita'] : '';
+$eq_bajada_cita = !empty($equipo['bajada_cita']) ? $equipo['bajada_cita'] : '';
 ?>
-<section class="py-[80px]">
+<section id="equipo" class="py-[80px]">
   <div class="max-w-[900px] mx-auto px-4">
     <?php if ($eq_titulo): ?>
       <h2 class="text-[#132148] text-[64px] text-center uppercase leading-[120%] font-medium">
@@ -268,6 +275,17 @@ $eq_miembros = (!empty($equipo['miembros']) && is_array($equipo['miembros'])) ? 
           </div>
         <?php endforeach; ?>
       </div>
+    <?php endif; ?>
+
+		<?php if ($eq_cita) : ?>
+      <h5 class="text-[#C2996B] font-black uppercase leading-[120%] mt-8 text-center text-[46px]">
+        <?php echo $eq_cita ?>
+      </h5>
+    <?php endif; ?>
+		<?php if ($eq_bajada_cita) : ?>
+      <p class="text-[#132148]/80 max-w-[700px] mx-auto text-center leading-[120%] mt-4">
+        <?php echo strip_tags($eq_cita) ?>
+      </p>
     <?php endif; ?>
   </div>
 </section>

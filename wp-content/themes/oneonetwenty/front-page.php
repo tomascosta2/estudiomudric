@@ -226,7 +226,7 @@ $al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'
               </div>
             <?php endif; ?>
             <?php if (!empty($item['boton'])): ?>
-              <a class="bg-gradient-to-t from-[#132148] to-[#2E50AE] px-[40px] py-2 rounded-md text-white font-semibold uppercase block w-fit ms-auto mt-2" href="<?php echo $item['boton']['url']; ?>">
+              <a class="bg-gradient-to-t from-[#132148] to-[#2E50AE] px-[40px] py-2 rounded-md text-white font-semibold uppercase block w-fit ms-auto mt-3" href="<?php echo $item['boton']['url']; ?>">
                 <?php echo $item['boton']['title']; ?>
               </a>            
             <?php endif; ?>

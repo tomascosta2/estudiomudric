@@ -15,10 +15,10 @@ $wrapper_classes .= has_nav_menu('primary') ? ' has-menu' : '';
 ?>
 
 <div class="sticky top-0 z-50">
-	<div class="bg-gradient-to-r text-[14px] flex items-center justify-center gap-8 text-white from-[#132148] to-[#2E50AE] p-2">
-		<p>direccion</p>
-		<p>direccion</p>
-		<p>direccion</p>
+	<div class="bg-gradient-to-r flex items-center justify-center gap-8 text-white from-[#132148] to-[#2E50AE] p-2">
+		<span>direccion</span>
+		<span>direccion</span>
+		<span>direccion</span>
 	</div>
 	<header class="tcp-header max-w-[1110px] mx-auto h-[71px] relative z-50 px-4">
 		<div class="max-w-[1200px] mx-auto px-4 xl:px-0">

@@ -226,7 +226,7 @@ $al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'
               </div>
             <?php endif; ?>
             <?php if (!empty($item['boton'])): ?>
-              <a class="bg-gradient-to-t from-[#132148] to-[#2E50AE] px-[40px] py-2 rounded-md text-white font-semibold" href="<?php echo $item['boton']['url']; ?>">
+              <a class="bg-gradient-to-t from-[#132148] to-[#2E50AE] px-[40px] py-2 rounded-md text-white font-semibold uppercase block w-fit ms-auto mt-2" href="<?php echo $item['boton']['url']; ?>">
                 <?php echo $item['boton']['title']; ?>
               </a>            
             <?php endif; ?>
@@ -314,7 +314,7 @@ $eq_bajada_cita = !empty($equipo['bajada_cita']) ? $equipo['bajada_cita'] : '';
 $ct_titulo   = !empty($contacto['titulo']) ? esc_html($contacto['titulo']) : '';
 $ct_maps_src = !empty($contacto['direccion']) ? esc_url($contacto['direccion']) : ''; // en tu JSON es el SRC del iframe
 ?>
-<section>
+<section id="contacto">
   <div class="grid grid-cols-6">
     <div class="py-[70px] col-span-6 md:col-span-2 px-10 bg-gradient-to-t from-[#5C4933] to-[#C2996B]">
       <?php if ($ct_titulo): ?>

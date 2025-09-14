@@ -320,6 +320,7 @@ $ct_maps_src = !empty($contacto['direccion']) ? esc_url($contacto['direccion']) 
       <?php if ($ct_titulo): ?>
         <h2 class="text-white font-black text-[48px] md:text-[64px]"><?php echo $ct_titulo; ?></h2>
       <?php endif; ?>
+      <?php echo do_shortcode('[contact-form-7 id="109d2dd" title="Contact form 1"]'); ?>
     </div>
     <div class="col-span-6 md:col-span-4">
       <?php if ($ct_maps_src): ?>

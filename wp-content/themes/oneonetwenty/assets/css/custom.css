@@ -24,7 +24,7 @@ button {
 	border: none;
 }
 
-p {
+p:not(footer p) {
 	font-size: 24px;
 }
 
@@ -69,6 +69,7 @@ h1.tcp-title {
   text-transform: uppercase;
   color: #fff; /* text-white */
   background: linear-gradient(to bottom, #132148, #2E50AE); /* bg-gradient-to-b */
+  cursor: pointer;
 }
 
 /* Form */

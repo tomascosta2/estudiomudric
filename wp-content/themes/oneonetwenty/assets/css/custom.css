@@ -11,6 +11,24 @@
 	--primary-color: #132148;
 }
 
+/* Scroll */
+* {
+	scroll-behavior: smooth;
+}
+*::-webkit-scrollbar {
+	width: 12px;
+}
+*::-webkit-scrollbar-track,
+body {
+	background-color: white;
+	overflow-x: clip;
+}
+*::-webkit-scrollbar-thumb {
+	background-color: var(--primary) !important;
+	border-radius: 20px;
+	border: 5px solid white;
+}
+
 body {
 	background-color: #F5F5F5;
 }

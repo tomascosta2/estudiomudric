@@ -106,7 +106,7 @@ $datos_bajada = $datos['bajada'];
 $srv_titulo = !empty($servicios['titulo']) ? esc_html($servicios['titulo']) : '';
 $srv_items  = (!empty($servicios['items']) && is_array($servicios['items'])) ? $servicios['items'] : [];
 ?>
-<section id="servicios" class="py-[64px] md:py-[126px] bg-gradient-to-t from-[#2E50AE] to-[#132148] -mt-[20px] md:-mt-[30px] px-4">
+<section id="servicios" class="scroll-mt-[71px] py-[64px] md:py-[126px] bg-gradient-to-t from-[#2E50AE] to-[#132148] -mt-[20px] md:-mt-[30px] px-4">
   <div class="max-w-[1120px] mx-auto">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
@@ -162,7 +162,7 @@ $his_img1   = (!empty($historia['imagen_1']) && !empty($historia['imagen_1']['ur
 $his_img2   = (!empty($historia['imagen_2']) && !empty($historia['imagen_2']['url'])) ? esc_url($historia['imagen_2']['url']) : '';
 $his_img3   = (!empty($historia['imagen_3']) && !empty($historia['imagen_3']['url'])) ? esc_url($historia['imagen_3']['url']) : '';
 ?>
-<section id="nosotros" class="py-[40px] md:py-[45px] bg-gradient-to-t from-[#5C4933] to-[#C2996B] px-4">
+<section id="nosotros" class="scroll-mt-[71px] py-[40px] md:py-[45px] bg-gradient-to-t from-[#5C4933] to-[#C2996B] px-4">
   <div class="max-w-[1120px] mx-auto">
     <?php if ($his_titulo): ?>
       <h2 class="text-white text-[36px] sm:text-[48px] md:text-[64px] text-center uppercase leading-[120%] font-medium">
@@ -220,7 +220,7 @@ $al_titulo = !empty($areas_legales['titulo']) ? esc_html($areas_legales['titulo'
 $al_bajada = !empty($areas_legales['bajada']) ? esc_html($areas_legales['bajada']) : '';
 $al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'])) ? $areas_legales['items'] : [];
 ?>
-<section id="areas" class="py-[60px] md:py-[80px] bg-gradient-to-t from-[#555555] to-[#BBBBBB] px-4">
+<section id="areas" class="scroll-mt-[71px] py-[60px] md:py-[80px] bg-gradient-to-t from-[#555555] to-[#BBBBBB] px-4">
   <div class="max-w-[900px] mx-auto">
     <?php if ($al_titulo): ?>
       <h2 class="text-white text-[36px] sm:text-[48px] text-center uppercase leading-[110%] font-medium">
@@ -271,7 +271,7 @@ $eq_miembros = (!empty($equipo['miembros']) && is_array($equipo['miembros'])) ? 
 $eq_cita = !empty($equipo['cita']) ? $equipo['cita'] : '';
 $eq_bajada_cita = !empty($equipo['bajada_cita']) ? $equipo['bajada_cita'] : '';
 ?>
-<section id="equipo" class="py-[60px] md:py-[80px] px-4">
+<section id="equipo" class="scroll-mt-[71px] py-[60px] md:py-[80px] px-4">
   <div class="max-w-[900px] mx-auto">
     <?php if ($eq_titulo): ?>
       <h2 class="text-[#132148] text-[36px] sm:text-[48px] md:text-[64px] text-center uppercase leading-[120%] font-medium">
@@ -348,7 +348,7 @@ $eq_bajada_cita = !empty($equipo['bajada_cita']) ? $equipo['bajada_cita'] : '';
 $ct_titulo   = !empty($contacto['titulo']) ? esc_html($contacto['titulo']) : '';
 $ct_maps_src = !empty($contacto['direccion']) ? esc_url($contacto['direccion']) : ''; // en tu JSON es el SRC del iframe
 ?>
-<section id="contacto">
+<section id="contacto" class="scroll-mt-[71px]">
   <div class="grid grid-cols-1 md:grid-cols-6">
     <div class="py-[50px] md:py-[70px] col-span-1 md:col-span-2 px-6 sm:px-8 md:px-10 bg-gradient-to-t from-[#5C4933] to-[#C2996B]">
       <?php if ($ct_titulo): ?>

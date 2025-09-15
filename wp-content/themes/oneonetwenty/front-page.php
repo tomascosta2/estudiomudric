@@ -24,7 +24,7 @@ $hero_bg = !empty($hero['fondo']) && !empty($hero['fondo']['url'])
   ? ' style="background-image:url(\'' . esc_url($hero['fondo']['url']) . '\'); background-size:cover; background-position:center;"'
   : '';
 ?>
-<section class="-mt-[71px] py-[80px] md:py-[120px] h-auto md:h-[1030px] bg-red-700 p-4" <?php echo $hero_bg; ?>>
+<section class="-mt-[71px] py-[80px] md:py-[120px] h-auto md:h-[1030px] bg-grey-400 p-4" <?php echo $hero_bg; ?>>
   <div class="max-w-[1120px] mx-auto px-4">
     <div>
       <div class="max-w-[850px]">

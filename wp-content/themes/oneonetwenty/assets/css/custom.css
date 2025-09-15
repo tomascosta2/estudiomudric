@@ -60,8 +60,17 @@ h1.tcp-title {
 
 /* Buttons */
 .em-btn {
-	@apply bg-gradient-to-b py-6 px-12 rounded-lg block w-fit text-white font-black uppercase mt-4 from-[#132148] to-[#2E50AE];
+  display: block;
+  width: fit-content;
+  padding: 1.5rem 3rem; /* py-6 px-12 */
+  border-radius: 0.5rem; /* rounded-lg */
+  margin-top: 1rem; /* mt-4 */
+  font-weight: 900; /* font-black */
+  text-transform: uppercase;
+  color: #fff; /* text-white */
+  background: linear-gradient(to bottom, #132148, #2E50AE); /* bg-gradient-to-b */
 }
+
 
 /* Header -> Navigation */
 .tcp-header__toggler {

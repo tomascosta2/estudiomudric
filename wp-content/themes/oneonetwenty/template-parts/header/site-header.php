@@ -19,7 +19,7 @@ $email = get_field('correo', 10);
 ?>
 
 <div class="sticky top-0 z-50">
-	<div class="hidden md:block bg-gradient-to-r flex items-center justify-center gap-8 text-white from-[#132148] to-[#2E50AE] p-2">
+	<div class="hidden md:flex bg-gradient-to-r items-center justify-center gap-8 text-white from-[#132148] to-[#2E50AE] p-2">
 		<?php if ($direction) : ?>
 		<span><?php echo strip_tags($direction) ?></span>
 		<?php endif; ?>

@@ -319,7 +319,7 @@ $ct_maps_src = !empty($contacto['direccion']) ? esc_url($contacto['direccion']) 
   <div class="grid grid-cols-1 md:grid-cols-6">
     <div class="py-[50px] md:py-[70px] col-span-1 md:col-span-2 px-6 sm:px-8 md:px-10 bg-gradient-to-t from-[#5C4933] to-[#C2996B]">
       <?php if ($ct_titulo): ?>
-        <h2 class="text-white font-black text-[36px] sm:text-[48px] md:text-[64px]"><?php echo $ct_titulo; ?></h2>
+        <h2 class="text-white font-black text-[36px] sm:text-[48px] md:text-[64px] uppercase"><?php echo $ct_titulo; ?></h2>
       <?php endif; ?>
       <?php echo do_shortcode('[contact-form-7 id="109d2dd" title="Contact form 1"]'); ?>
     </div>

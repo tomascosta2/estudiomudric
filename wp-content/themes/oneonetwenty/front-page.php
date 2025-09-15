@@ -324,7 +324,7 @@ $ct_maps_src = !empty($contacto['direccion']) ? esc_url($contacto['direccion']) 
     </div>
     <div class="col-span-6 md:col-span-4">
       <?php if ($ct_maps_src): ?>
-        <iframe class="w-full h-full" src="<?php echo $ct_maps_src; ?>" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe class="w-full h-full" src="<?php echo $ct_maps_src; ?>" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       <?php endif; ?>
     </div>
   </div>

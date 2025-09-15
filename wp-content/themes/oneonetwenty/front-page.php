@@ -47,7 +47,11 @@ $hero_bg = !empty($hero['fondo']) && !empty($hero['fondo']['url'])
 
         <?php if (!empty($hero['boton']) && !empty($hero['boton']['url'])): ?>
           <a
-            class="bg-gradient-to-b py-4 sm:py-5 md:py-6 px-6 sm:px-10 md:px-12 rounded-lg inline-block text-white font-black uppercase mt-4 from-[#132148] to-[#2E50AE] text-[14px] sm:text-[16px]"
+            class="bg-gradient-to-b py-4 sm:py-5 md:py-6 px-6 sm:px-10 md:px-12 rounded-lg inline-block text-white font-black uppercase mt-4 from-[#132148] to-[#2E50AE] text-[14px] sm:text-[16px]
+              transition-all duration-300 ease-out
+              motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-[1.01]
+              hover:brightness-110 hover:shadow-lg
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
             href="<?php echo esc_url($hero['boton']['url']); ?>"
             <?php echo !empty($hero['boton']['target']) ? ' target="' . esc_attr($hero['boton']['target']) . '" rel="noopener"' : ''; ?>>
             <?php echo !empty($hero['boton']['title']) ? esc_html($hero['boton']['title']) : 'Ver más'; ?>

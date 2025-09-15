@@ -234,7 +234,8 @@ $al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'
 
     <?php if ($al_items): ?>
       <?php foreach ($al_items as $item): ?>
-        <div class="text-white grid grid-cols-1 md:grid-cols-3 mt-8 border-b border-white py-6 md:py-8 gap-4">
+        <div class="text-white grid grid-cols-1 md:grid-cols-3 mt-8 border-b border-white py-6 md:py-8 gap-4
+              rounded-[6px] transition-colors duration-300 hover:bg-white/5">
           <div class="md:w-[240px]">
             <?php if (!empty($item['area'])): ?>
               <h3 class="text-[32px] sm:text-[40px] md:text-[48px] font-medium leading-[110%]"><?php echo esc_html($item['area']); ?></h3>
@@ -247,7 +248,10 @@ $al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'
               </div>
             <?php endif; ?>
             <?php if (!empty($item['boton'])): ?>
-              <a class="bg-gradient-to-t from-[#132148] to-[#2E50AE] px-6 md:px-[40px] py-2 rounded-md text-white font-semibold uppercase inline-block mt-3"
+              <a class="bg-gradient-to-t from-[#132148] to-[#2E50AE] px-6 md:px-[40px] py-2 rounded-md text-white font-semibold uppercase inline-block mt-3
+                  transition-all duration-300 ease-out
+                  motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-[1.01]
+                  hover:brightness-110 hover:shadow-lg"
                 href="<?php echo $item['boton']['url']; ?>">
                 <?php echo $item['boton']['title']; ?>
               </a>
@@ -294,11 +298,19 @@ $eq_bajada_cita = !empty($equipo['bajada_cita']) ? $equipo['bajada_cita'] : '';
           <?php
           $foto = (!empty($m['Foto']) && !empty($m['Foto']['url'])) ? esc_url($m['Foto']['url']) : '';
           ?>
-          <div class="overflow-clip rounded-[12px]">
+          <div class="overflow-clip rounded-[12px] group">
             <?php if ($foto): ?>
-              <img class="h-[340px] sm:h-[380px] md:h-[430px] w-full object-cover" src="<?php echo $foto; ?>" alt="">
+              <img 
+                class="h-[340px] sm:h-[380px] md:h-[430px] w-full object-cover
+                  transition-transform duration-500 ease-out
+                  motion-safe:group-hover:scale-[1.02]" 
+                src="<?php echo $foto; ?>" 
+                alt=""
+              />
             <?php endif; ?>
-            <div class="bg-[#132148] p-6 sm:p-8">
+            <div class="bg-[#132148] p-6 sm:p-8
+                  transition-colors duration-300 group-hover:bg-[#101e49]"
+            >
               <?php if (!empty($m['nombre'])): ?>
                 <h3 class="text-[18px] sm:text-[20px] font-black text-white text-center"><?php echo esc_html($m['nombre']); ?></h3>
               <?php endif; ?>

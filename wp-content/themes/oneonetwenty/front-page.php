@@ -29,7 +29,7 @@ $hero_bg = !empty($hero['fondo']) && !empty($hero['fondo']['url'])
     <div>
       <div class="max-w-[850px]">
         <?php if (!empty($hero['arriba_del_titulo'])): ?>
-          <span class="text-white md:text-[20px] py-2 px-6 bg-[#C2996B]">
+          <span class="text-white md:text-[20px] py-3 px-8 bg-[#C2996B] rounded-[5px]">
             <?php echo strip_tags($hero['arriba_del_titulo']) ?>
           </span>
         <?php endif; ?>
@@ -223,13 +223,13 @@ $al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'
 <section id="areas" class="py-[60px] md:py-[80px] bg-gradient-to-t from-[#555555] to-[#BBBBBB] px-4">
   <div class="max-w-[900px] mx-auto">
     <?php if ($al_titulo): ?>
-      <h2 class="text-white text-[36px] sm:text-[48px] text-center uppercase leading-[120%] font-medium">
+      <h2 class="text-white text-[36px] sm:text-[48px] text-center uppercase leading-[110%] font-medium">
         <strong class="font-black"><?php echo $al_titulo; ?></strong>
       </h2>
     <?php endif; ?>
 
     <?php if ($al_bajada): ?>
-      <p class="text-white/90 text-center mt-3 sm:mt-4 md:max-w-[348px] mx-auto"><?php echo $al_bajada; ?></p>
+      <p class="text-white/90 text-center mt-3 sm:mt-4 md:max-w-[348px] mx-auto leading-[110%] text-[20px]"><?php echo $al_bajada; ?></p>
     <?php endif; ?>
 
     <?php if ($al_items): ?>

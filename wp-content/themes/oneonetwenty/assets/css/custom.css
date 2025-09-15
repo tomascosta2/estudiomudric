@@ -24,7 +24,7 @@ body {
 	overflow-x: clip;
 }
 *::-webkit-scrollbar-thumb {
-	background-color: var(--primary) !important;
+	background-color: var(--primary-color) !important;
 	border-radius: 20px;
 	border: 5px solid white;
 }

@@ -223,19 +223,19 @@ $al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'
 <section id="areas" class="py-[60px] md:py-[80px] bg-gradient-to-t from-[#555555] to-[#BBBBBB] px-4">
   <div class="max-w-[900px] mx-auto">
     <?php if ($al_titulo): ?>
-      <h2 class="text-white text-[36px] sm:text-[48px] md:text-[64px] text-center uppercase leading-[120%] font-medium">
+      <h2 class="text-white text-[36px] sm:text-[48px] text-center uppercase leading-[120%] font-medium">
         <strong class="font-black"><?php echo $al_titulo; ?></strong>
       </h2>
     <?php endif; ?>
 
     <?php if ($al_bajada): ?>
-      <p class="text-white/90 text-center mt-3 sm:mt-4 text-[15px] sm:text-[16px]"><?php echo $al_bajada; ?></p>
+      <p class="text-white/90 text-center mt-3 sm:mt-4 md:max-w-[348px] mx-auto"><?php echo $al_bajada; ?></p>
     <?php endif; ?>
 
     <?php if ($al_items): ?>
       <?php foreach ($al_items as $item): ?>
         <div class="text-white grid grid-cols-1 md:grid-cols-3 mt-8 border-b border-white py-6 md:py-8 gap-4
-              rounded-[6px] transition-colors duration-300 hover:bg-white/5">
+              transition-colors duration-300 hover:bg-white/5">
           <div class="md:w-[240px]">
             <?php if (!empty($item['area'])): ?>
               <h3 class="text-[32px] sm:text-[40px] md:text-[48px] font-medium leading-[110%]"><?php echo esc_html($item['area']); ?></h3>

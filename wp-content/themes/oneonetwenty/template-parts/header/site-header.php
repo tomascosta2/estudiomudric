@@ -30,7 +30,7 @@ $email = get_field('correo', 10);
 		<span><?php echo strip_tags($email) ?></span>
 		<?php endif; ?>
 	</div>
-	<header class="tcp-header max-w-[1110px] mx-auto h-[71px] relative z-50 px-4">
+	<header class="tcp-header max-w-[1110px] mx-auto relative z-50 px-4 py-2">
 		<div class="max-w-[1200px] mx-auto px-4 xl:px-0">
 			<div class="tcp-header__wrapper">
 				<button id="menuOpener" class="tcp-header__toggler">

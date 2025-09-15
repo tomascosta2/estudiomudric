@@ -45,7 +45,6 @@ h1.tcp-title {
 
 /* Header */
 .tcp-header {
-	padding: 20px 0;
 	background-color: #FFF;
 }
 .tcp-header__wrapper {
@@ -91,8 +90,8 @@ form br {
 	display: none;
 }
 .tcp-header__toggler line {
-	fill: #FFF;
-	stroke: #FFF;
+	fill: var(--primary-color);
+	stroke: var(--primary-color);
 }
 .tcp-navigation__list {
 	list-style: none;

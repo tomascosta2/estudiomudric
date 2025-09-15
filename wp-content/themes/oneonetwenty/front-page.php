@@ -179,7 +179,7 @@ $his_img3   = (!empty($historia['imagen_3']) && !empty($historia['imagen_3']['ur
 
     <?php if ($his_texto): ?>
       <div class="max-w-[670px] leading-[160%] md:leading-[120%] md:columns-2 gap-4 mx-auto text-[15px] sm:text-[16px] mt-4 text-white">
-        <?php echo $his_texto; ?>
+        <?php echo strip_tags($his_texto); ?>
       </div>
     <?php endif; ?>
 

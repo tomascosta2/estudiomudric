@@ -248,7 +248,7 @@ $al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'
               </div>
             <?php endif; ?>
             <?php if (!empty($item['boton'])): ?>
-              <a class="bg-gradient-to-t from-[#132148] to-[#2E50AE] px-6 md:px-[40px] py-2 rounded-md text-white font-semibold uppercase inline-block mt-3
+              <a class="bg-gradient-to-t from-[#132148] to-[#2E50AE] px-6 md:px-[40px] py-2 rounded-md text-white font-semibold uppercase inline-block mt-3 ms-auto
                   transition-all duration-300 ease-out
                   motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-[1.01]
                   hover:brightness-110 hover:shadow-lg"

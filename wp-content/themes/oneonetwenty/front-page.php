@@ -34,7 +34,7 @@ $hero_bg = !empty($hero['fondo']) && !empty($hero['fondo']['url'])
         <?php endif; ?>
 
         <?php if (!empty($hero['bajada'])): ?>
-          <div class="text-white max-w-[590px] text-[16px] sm:text-[18px]">
+          <div class="text-white leading-[110%] max-w-[590px] text-[16px] sm:text-[18px]">
             <?php echo $hero['bajada']; ?>
           </div>
         <?php endif; ?>

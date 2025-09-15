@@ -218,7 +218,7 @@ form br {
 		display: flex;
 	}
 	.tcp-navigation__closer path {
-		fill: #FFF;
+		fill: var(--primary-color);
 	}
 	.tcp-navigation__logo img,
 	.tcp-header__logo img {

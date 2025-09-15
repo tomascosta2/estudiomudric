@@ -68,7 +68,7 @@ $datos_bajada = $datos['bajada'];
           class="text-center md:text-left text-[120px] sm:text-[180px] md:text-[250px] leading-[74%] block md:w-[270px] font-black -tracking-[8px] sm:-tracking-[16px] md:-tracking-[24px] bg-gradient-to-b from-[#0a1a3f] to-[#1e48a8] text-transparent bg-clip-text">
           <?php echo $datos_num ? $datos_num . ' ' : ''; ?>
         </span>
-        <span class="text-center md:text-left text-[48px] sm:text-[72px] md:text-[100px] -mt-4 sm:-mt-8 leading-[70%] block font-medium text-[#C2996B] -tracking-[0.5%]"><?php echo $datos_de; ?></span>        
+        <span class="text-center text-[48px] sm:text-[72px] md:text-[100px] -mt-4 sm:-mt-8 leading-[70%] block font-medium text-[#C2996B] -tracking-[0.5%]"><?php echo $datos_de; ?></span>        
       </div>
       <?php if ($datos_img): ?>
         <div class="md:ps-[68px] py-[20px] md:py-[40px] md:border-l-2 md:border-[#132148]">

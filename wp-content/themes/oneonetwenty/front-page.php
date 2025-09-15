@@ -28,6 +28,11 @@ $hero_bg = !empty($hero['fondo']) && !empty($hero['fondo']['url'])
   <div class="max-w-[1120px] mx-auto px-4">
     <div>
       <div class="max-w-[850px]">
+        <?php if (!empty($hero['arriba_del_titulo'])): ?>
+          <span class="text-white md:text-[20px] py-2 px-6 bg-[#C2996B]">
+            <?php echo strip_tags($hero['arriba_del_titulo']) ?>
+          </span>
+        <?php endif; ?>
         <?php if (!empty($hero['titulo'])): ?>
           <h1 class="text-white leading-[110%] my-4 text-[40px] sm:text-[56px] md:text-[90px] font-semibold">
             <?php echo esc_html(strip_tags($hero['titulo'])); ?>
@@ -118,7 +123,7 @@ $srv_items  = (!empty($servicios['items']) && is_array($servicios['items'])) ? $
         <?php if ($srv_items): ?>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <?php foreach ($srv_items as $item): ?>
-              <div class="bg-white p-6 sm:p-8 rounded-[5px]">
+              <div class="bg-white p-6 sm:p-8 rounded-[5px] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-xl">
                 <?php if (!empty($item['titulo'])): ?>
                   <h3 class="text-[#132148] text-[20px] sm:text-[22px] md:text-[24px] font-bold mb-3">
                     <?php echo esc_html($item['titulo']); ?>
@@ -175,16 +180,22 @@ $his_img3   = (!empty($historia['imagen_3']) && !empty($historia['imagen_3']['ur
     <?php endif; ?>
 
     <?php if ($his_img1 || $his_img2 || $his_img3): ?>
-      <div class="max-w-[1000px] mt-6 md:mt-8 mx-auto rounded-lg overflow-clip">
+      <div class="max-w-[1000px] group mt-6 md:mt-8 mx-auto rounded-lg overflow-clip">
         <?php if ($his_img1): ?>
-          <img class="w-full h-[180px] sm:h-[220px] md:h-[250px] object-cover" src="<?php echo $his_img1; ?>" alt="">
+          <img class="w-full h-[180px] sm:h-[220px] md:h-[250px] object-cover
+           transition-transform duration-500 ease-out
+           motion-safe:group-hover:scale-[1.015]" src="<?php echo $his_img1; ?>" alt="">
         <?php endif; ?>
         <div class="grid grid-cols-1 md:grid-cols-5 mt-6 md:mt-8 gap-4 md:gap-8 md:h-[500px]">
           <?php if ($his_img2): ?>
-            <img class="w-full h-[220px] sm:h-[280px] md:h-full md:col-span-3 object-cover" src="<?php echo $his_img2; ?>" alt="">
+            <img class="w-full h-[220px] sm:h-[280px] md:h-full md:col-span-3 object-cover
+           transition-transform duration-500 ease-out
+           motion-safe:hover:scale-[1.02]" src="<?php echo $his_img2; ?>" alt="">
           <?php endif; ?>
           <?php if ($his_img3): ?>
-            <img class="w-full h-[220px] sm:h-[280px] md:h-full md:col-span-2 object-cover" src="<?php echo $his_img3; ?>" alt="">
+            <img class="w-full h-[220px] sm:h-[280px] md:h-full md:col-span-2 object-cover
+           transition-transform duration-500 ease-out
+           motion-safe:hover:scale-[1.02]" src="<?php echo $his_img3; ?>" alt="">
           <?php endif; ?>
         </div>
       </div>
@@ -338,78 +349,80 @@ $ct_maps_src = !empty($contacto['direccion']) ? esc_url($contacto['direccion']) 
 </section>
 
 <script>
-(function () {
-  // Formatea con Intl y decimales
-  function formatNumber(value, locale, decimals) {
-    try {
-      return new Intl.NumberFormat(locale || 'es-AR', {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals
-      }).format(value);
-    } catch (_) {
-      return value.toLocaleString(); // fallback simple
+  (function() {
+    // Formatea con Intl y decimales
+    function formatNumber(value, locale, decimals) {
+      try {
+        return new Intl.NumberFormat(locale || 'es-AR', {
+          minimumFractionDigits: decimals,
+          maximumFractionDigits: decimals
+        }).format(value);
+      } catch (_) {
+        return value.toLocaleString(); // fallback simple
+      }
     }
-  }
 
-  // Parsea targets tipo "12.345", "12 345", "12,5"
-  function parseTarget(str) {
-    if (typeof str !== 'string') return 0;
-    const s = str.trim();
-    const hasComma = s.includes(',');
-    const hasDot   = s.includes('.');
+    // Parsea targets tipo "12.345", "12 345", "12,5"
+    function parseTarget(str) {
+      if (typeof str !== 'string') return 0;
+      const s = str.trim();
+      const hasComma = s.includes(',');
+      const hasDot = s.includes('.');
 
-    // Heurística: si hay coma y punto, priorizamos el formato es-AR (punto miles, coma decimal)
-    if (hasComma && hasDot) {
-      const cleaned = s.replace(/\./g, '').replace(',', '.'); // "12.345,67" -> "12345.67"
-      return parseFloat(cleaned) || 0;
+      // Heurística: si hay coma y punto, priorizamos el formato es-AR (punto miles, coma decimal)
+      if (hasComma && hasDot) {
+        const cleaned = s.replace(/\./g, '').replace(',', '.'); // "12.345,67" -> "12345.67"
+        return parseFloat(cleaned) || 0;
+      }
+      // Solo coma: asumimos coma decimal
+      if (hasComma && !hasDot) {
+        return parseFloat(s.replace(',', '.')) || 0;
+      }
+      // Solo punto: puede ser miles o decimal, pero parseFloat ya sirve
+      const onlyDigitsAndDot = s.replace(/[^\d.]/g, '');
+      return parseFloat(onlyDigitsAndDot) || 0;
     }
-    // Solo coma: asumimos coma decimal
-    if (hasComma && !hasDot) {
-      return parseFloat(s.replace(',', '.')) || 0;
+
+    function animateCount(el) {
+      const target = parseTarget(el.getAttribute('data-target') || '0');
+      const duration = parseInt(el.getAttribute('data-duration') || '1500', 10);
+      const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+      const locale = el.getAttribute('data-locale') || 'es-AR';
+      const startTime = performance.now();
+      const startVal = 0;
+
+      function tick(now) {
+        const p = Math.min(1, (now - startTime) / duration);
+        // Easing suave (easeOutCubic)
+        const eased = 1 - Math.pow(1 - p, 3);
+        const current = startVal + (target - startVal) * eased;
+        el.textContent = formatNumber(+current.toFixed(decimals), locale, decimals);
+        if (p < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
     }
-    // Solo punto: puede ser miles o decimal, pero parseFloat ya sirve
-    const onlyDigitsAndDot = s.replace(/[^\d.]/g, '');
-    return parseFloat(onlyDigitsAndDot) || 0;
-  }
 
-  function animateCount(el) {
-    const target    = parseTarget(el.getAttribute('data-target') || '0');
-    const duration  = parseInt(el.getAttribute('data-duration') || '1500', 10);
-    const decimals  = parseInt(el.getAttribute('data-decimals') || '0', 10);
-    const locale    = el.getAttribute('data-locale') || 'es-AR';
-    const startTime = performance.now();
-    const startVal  = 0;
+    // Soporte múltiples contadores: [data-counter]
+    const counters = document.querySelectorAll('[data-counter]');
 
-    function tick(now) {
-      const p = Math.min(1, (now - startTime) / duration);
-      // Easing suave (easeOutCubic)
-      const eased = 1 - Math.pow(1 - p, 3);
-      const current = startVal + (target - startVal) * eased;
-      el.textContent = formatNumber(+current.toFixed(decimals), locale, decimals);
-      if (p < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  }
-
-  // Soporte múltiples contadores: [data-counter]
-  const counters = document.querySelectorAll('[data-counter]');
-
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries, obs) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateCount(entry.target);
-          obs.unobserve(entry.target); // animar una sola vez
-        }
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+            obs.unobserve(entry.target); // animar una sola vez
+          }
+        });
+      }, {
+        threshold: 0.3
       });
-    }, { threshold: 0.3 });
 
-    counters.forEach(el => io.observe(el));
-  } else {
-    // Fallback: animar inmediatamente
-    counters.forEach(el => animateCount(el));
-  }
-})();
+      counters.forEach(el => io.observe(el));
+    } else {
+      // Fallback: animar inmediatamente
+      counters.forEach(el => animateCount(el));
+    }
+  })();
 </script>
 
 

@@ -8,7 +8,7 @@
 }
 
 :root {
-	--primary-color: blue;
+	--primary-color: #132148;
 }
 
 body {
@@ -231,7 +231,7 @@ form br {
 		top: 0;
 		left: 0;
 		height: 100vh;
-		background: #201C23;
+		background: white;
 		padding: 25px 16px;
 		width: 0;
 		transition: all 1s;
@@ -264,7 +264,7 @@ form br {
 		height: 100%;
 	}
 	body.home .tcp-navigation__list a {
-		color: #FFF;
+		color: var(--primary-color);
 		width: 100%;
 	}
 

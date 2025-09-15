@@ -71,6 +71,10 @@ h1.tcp-title {
   background: linear-gradient(to bottom, #132148, #2E50AE); /* bg-gradient-to-b */
 }
 
+/* Form */
+form br {
+	display: none !important;
+}
 
 /* Header -> Navigation */
 .tcp-header__toggler {

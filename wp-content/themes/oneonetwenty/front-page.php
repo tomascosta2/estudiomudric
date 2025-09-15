@@ -234,7 +234,7 @@ $al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'
 
     <?php if ($al_items): ?>
       <?php foreach ($al_items as $item): ?>
-        <div class="text-white grid grid-cols-1 md:grid-cols-3 mt-8 border-b border-white py-6 md:py-8 gap-4
+        <div class="text-white grid grid-cols-1 md:grid-cols-3 border-b border-white py-6 md:py-12 gap-4 px-4
               transition-colors duration-300 hover:bg-white/5">
           <div class="md:w-[240px]">
             <?php if (!empty($item['area'])): ?>
@@ -248,7 +248,7 @@ $al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'
               </div>
             <?php endif; ?>
             <?php if (!empty($item['boton'])): ?>
-              <a class="bg-gradient-to-t from-[#132148] to-[#2E50AE] px-6 md:px-[40px] py-2 rounded-md text-white font-semibold uppercase inline-block mt-3 ms-auto
+              <a class="bg-gradient-to-t from-[#132148] to-[#2E50AE] px-6 md:px-[40px] py-2 rounded-md text-white font-semibold uppercase block w-fit mt-3 ms-auto
                   transition-all duration-300 ease-out
                   motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-[1.01]
                   hover:brightness-110 hover:shadow-lg"

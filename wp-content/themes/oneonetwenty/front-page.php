@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template: Home (Landing EMS)
  * Requiere ACF y el grupo "Home (Landing EMS)"
@@ -23,7 +24,7 @@ $hero_bg = !empty($hero['fondo']) && !empty($hero['fondo']['url'])
   ? ' style="background-image:url(\'' . esc_url($hero['fondo']['url']) . '\'); background-size:cover; background-position:center;"'
   : '';
 ?>
-<section class="-mt-[71px] py-[80px] md:py-[120px] h-auto md:h-[1030px] bg-red-700 p-4"<?php echo $hero_bg; ?>>
+<section class="-mt-[71px] py-[80px] md:py-[120px] h-auto md:h-[1030px] bg-red-700 p-4" <?php echo $hero_bg; ?>>
   <div class="max-w-[1120px] mx-auto px-4">
     <div>
       <div class="max-w-[850px]">
@@ -43,8 +44,7 @@ $hero_bg = !empty($hero['fondo']) && !empty($hero['fondo']['url'])
           <a
             class="bg-gradient-to-b py-4 sm:py-5 md:py-6 px-6 sm:px-10 md:px-12 rounded-lg inline-block text-white font-black uppercase mt-4 from-[#132148] to-[#2E50AE] text-[14px] sm:text-[16px]"
             href="<?php echo esc_url($hero['boton']['url']); ?>"
-            <?php echo !empty($hero['boton']['target']) ? ' target="'.esc_attr($hero['boton']['target']).'" rel="noopener"' : ''; ?>
-          >
+            <?php echo !empty($hero['boton']['target']) ? ' target="' . esc_attr($hero['boton']['target']) . '" rel="noopener"' : ''; ?>>
             <?php echo !empty($hero['boton']['title']) ? esc_html($hero['boton']['title']) : 'Ver más'; ?>
           </a>
         <?php endif; ?>
@@ -65,10 +65,16 @@ $datos_bajada = $datos['bajada'];
     <div class="flex flex-col md:flex-row md:items-center px-6 sm:px-10 md:px-[95px] pb-[30px] md:pb-[45px] pt-[22px] gap-6">
       <div class="md:pr-[58px] py-[20px] md:py-[40px] text-center md:text-left">
         <span
+          id="datosCounter"
+          data-counter
+          data-target="<?php echo preg_replace('/[^\d,\. ,]/', '', $datos_num); ?>"
+          data-locale="es-AR"
+          data-duration="1500"
+          data-decimals="0"
           class="text-center md:text-left text-[120px] sm:text-[180px] md:text-[250px] leading-[74%] block md:w-[270px] font-black -tracking-[8px] sm:-tracking-[16px] md:-tracking-[24px] bg-gradient-to-b from-[#0a1a3f] to-[#1e48a8] text-transparent bg-clip-text">
-          <?php echo $datos_num ? $datos_num . ' ' : ''; ?>
+          0
         </span>
-        <span class="text-center text-[48px] sm:text-[72px] md:text-[100px] -mt-4 sm:-mt-8 leading-[70%] block font-medium text-[#C2996B] -tracking-[0.5%]"><?php echo $datos_de; ?></span>        
+        <span class="text-center text-[48px] sm:text-[72px] md:text-[100px] -mt-4 sm:-mt-8 leading-[70%] block font-medium text-[#C2996B] -tracking-[0.5%]"><?php echo $datos_de; ?></span>
       </div>
       <?php if ($datos_img): ?>
         <div class="md:ps-[68px] py-[20px] md:py-[40px] md:border-l-2 md:border-[#132148]">
@@ -227,9 +233,9 @@ $al_items  = (!empty($areas_legales['items']) && is_array($areas_legales['items'
             <?php endif; ?>
             <?php if (!empty($item['boton'])): ?>
               <a class="bg-gradient-to-t from-[#132148] to-[#2E50AE] px-6 md:px-[40px] py-2 rounded-md text-white font-semibold uppercase inline-block mt-3"
-                 href="<?php echo $item['boton']['url']; ?>">
+                href="<?php echo $item['boton']['url']; ?>">
                 <?php echo $item['boton']['title']; ?>
-              </a>            
+              </a>
             <?php endif; ?>
           </div>
         </div>
@@ -290,12 +296,12 @@ $eq_bajada_cita = !empty($equipo['bajada_cita']) ? $equipo['bajada_cita'] : '';
       </div>
     <?php endif; ?>
 
-		<?php if ($eq_cita) : ?>
+    <?php if ($eq_cita) : ?>
       <h5 class="text-[#C2996B] font-black uppercase leading-[120%] mt-8 text-center text-[28px] sm:text-[36px] md:text-[46px]">
         <?php echo $eq_cita ?>
       </h5>
     <?php endif; ?>
-		<?php if ($eq_bajada_cita) : ?>
+    <?php if ($eq_bajada_cita) : ?>
       <p class="text-[#132148]/80 max-w-[700px] mx-auto text-center leading-[160%] md:leading-[120%] mt-4 px-2">
         <?php echo strip_tags($eq_bajada_cita) ?>
       </p>
@@ -330,5 +336,81 @@ $ct_maps_src = !empty($contacto['direccion']) ? esc_url($contacto['direccion']) 
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  // Formatea con Intl y decimales
+  function formatNumber(value, locale, decimals) {
+    try {
+      return new Intl.NumberFormat(locale || 'es-AR', {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      }).format(value);
+    } catch (_) {
+      return value.toLocaleString(); // fallback simple
+    }
+  }
+
+  // Parsea targets tipo "12.345", "12 345", "12,5"
+  function parseTarget(str) {
+    if (typeof str !== 'string') return 0;
+    const s = str.trim();
+    const hasComma = s.includes(',');
+    const hasDot   = s.includes('.');
+
+    // Heurística: si hay coma y punto, priorizamos el formato es-AR (punto miles, coma decimal)
+    if (hasComma && hasDot) {
+      const cleaned = s.replace(/\./g, '').replace(',', '.'); // "12.345,67" -> "12345.67"
+      return parseFloat(cleaned) || 0;
+    }
+    // Solo coma: asumimos coma decimal
+    if (hasComma && !hasDot) {
+      return parseFloat(s.replace(',', '.')) || 0;
+    }
+    // Solo punto: puede ser miles o decimal, pero parseFloat ya sirve
+    const onlyDigitsAndDot = s.replace(/[^\d.]/g, '');
+    return parseFloat(onlyDigitsAndDot) || 0;
+  }
+
+  function animateCount(el) {
+    const target    = parseTarget(el.getAttribute('data-target') || '0');
+    const duration  = parseInt(el.getAttribute('data-duration') || '1500', 10);
+    const decimals  = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    const locale    = el.getAttribute('data-locale') || 'es-AR';
+    const startTime = performance.now();
+    const startVal  = 0;
+
+    function tick(now) {
+      const p = Math.min(1, (now - startTime) / duration);
+      // Easing suave (easeOutCubic)
+      const eased = 1 - Math.pow(1 - p, 3);
+      const current = startVal + (target - startVal) * eased;
+      el.textContent = formatNumber(+current.toFixed(decimals), locale, decimals);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // Soporte múltiples contadores: [data-counter]
+  const counters = document.querySelectorAll('[data-counter]');
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          obs.unobserve(entry.target); // animar una sola vez
+        }
+      });
+    }, { threshold: 0.3 });
+
+    counters.forEach(el => io.observe(el));
+  } else {
+    // Fallback: animar inmediatamente
+    counters.forEach(el => animateCount(el));
+  }
+})();
+</script>
+
 
 <?php get_footer(); ?>

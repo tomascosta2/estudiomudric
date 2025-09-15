@@ -188,18 +188,18 @@ $his_img3   = (!empty($historia['imagen_3']) && !empty($historia['imagen_3']['ur
         <?php if ($his_img1): ?>
           <img class="w-full h-[180px] sm:h-[220px] md:h-[250px] object-cover
            transition-transform duration-500 ease-out
-           motion-safe:group-hover:scale-[1.015]" src="<?php echo $his_img1; ?>" alt="">
+           motion-safe:hover:scale-[1.02]" src="<?php echo $his_img1; ?>" alt="Estudio Mudric">
         <?php endif; ?>
         <div class="grid grid-cols-1 md:grid-cols-5 mt-6 md:mt-8 gap-4 md:gap-8 md:h-[500px]">
           <?php if ($his_img2): ?>
             <img class="w-full h-[220px] sm:h-[280px] md:h-full md:col-span-3 object-cover
            transition-transform duration-500 ease-out
-           motion-safe:hover:scale-[1.02]" src="<?php echo $his_img2; ?>" alt="">
+           motion-safe:hover:scale-[1.02]" src="<?php echo $his_img2; ?>" alt="Estudio Mudric">
           <?php endif; ?>
           <?php if ($his_img3): ?>
             <img class="w-full h-[220px] sm:h-[280px] md:h-full md:col-span-2 object-cover
            transition-transform duration-500 ease-out
-           motion-safe:hover:scale-[1.02]" src="<?php echo $his_img3; ?>" alt="">
+           motion-safe:hover:scale-[1.02]" src="<?php echo $his_img3; ?>" alt="Estudio Mudric">
           <?php endif; ?>
         </div>
       </div>
@@ -305,7 +305,7 @@ $eq_bajada_cita = !empty($equipo['bajada_cita']) ? $equipo['bajada_cita'] : '';
                   transition-transform duration-500 ease-out
                   motion-safe:group-hover:scale-[1.02]" 
                 src="<?php echo $foto; ?>" 
-                alt=""
+                alt="Estudio Mudric"
               />
             <?php endif; ?>
             <div class="bg-[#132148] p-6 sm:p-8

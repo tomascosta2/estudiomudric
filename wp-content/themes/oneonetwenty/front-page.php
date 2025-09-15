@@ -34,7 +34,7 @@ $hero_bg = !empty($hero['fondo']) && !empty($hero['fondo']['url'])
           </span>
         <?php endif; ?>
         <?php if (!empty($hero['titulo'])): ?>
-          <h1 class="text-white leading-[110%] my-4 text-[40px] sm:text-[56px] md:text-[90px] font-semibold">
+          <h1 class="text-white leading-[110%] my-4 text-[40px] sm:text-[56px] md:text-[90px] font-semibold uppercase">
             <?php echo esc_html(strip_tags($hero['titulo'])); ?>
           </h1>
         <?php endif; ?>
@@ -47,7 +47,7 @@ $hero_bg = !empty($hero['fondo']) && !empty($hero['fondo']['url'])
 
         <?php if (!empty($hero['boton']) && !empty($hero['boton']['url'])): ?>
           <a
-            class="bg-gradient-to-b py-4 sm:py-5 md:py-6 px-6 sm:px-10 md:px-12 rounded-lg inline-block text-white font-black uppercase mt-4 from-[#132148] to-[#2E50AE] text-[14px] sm:text-[16px]
+            class="bg-gradient-to-b py-4 sm:py-5 md:py-6 px-6 sm:px-10 md:px-12 rounded-lg inline-block text-white font-black uppercase mt-8 from-[#132148] to-[#2E50AE] text-[14px] sm:text-[16px]
               transition-all duration-300 ease-out
               motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-[1.01]
               hover:brightness-110 hover:shadow-lg
@@ -287,7 +287,7 @@ $eq_bajada_cita = !empty($equipo['bajada_cita']) ? $equipo['bajada_cita'] : '';
     <?php endif; ?>
 
     <?php if ($eq_bajada): ?>
-      <p class="text-[#132148] leading-[160%] md:leading-[120%] mt-3 sm:mt-4 text-center md:text-left text-[15px] sm:text-[16px]">
+      <p class="text-[#132148] text-center mt-3 sm:mt-4 md:max-w-[348px] mx-auto leading-[110%] text-[20px]">
         <?php echo $eq_bajada; ?>
       </p>
     <?php endif; ?>

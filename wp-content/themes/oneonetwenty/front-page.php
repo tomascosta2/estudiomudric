@@ -298,7 +298,7 @@ $eq_bajada_cita = !empty($equipo['bajada_cita']) ? $equipo['bajada_cita'] : '';
           <?php
           $foto = (!empty($m['Foto']) && !empty($m['Foto']['url'])) ? esc_url($m['Foto']['url']) : '';
           ?>
-          <a class="overflow-clip rounded-[12px] group block decoration-none" href="<?php echo $m['vcf']['url'] ?>" download="href="<?php echo $m['vcf']['title'] ?>">
+          <a class="overflow-clip rounded-[12px] group block decoration-none" href="<?php echo $m['vcf']['url'] ?>" download="<?php echo $m['nombre']; ?>">
             <?php if ($foto): ?>
               <img 
                 class="h-[340px] sm:h-[380px] md:h-[430px] w-full object-cover

@@ -92,7 +92,7 @@ $datos_bajada = $datos['bajada'];
       <?php endif; ?>
     </div>
     <?php if ($datos_bajada): ?>
-      <div class="bg-gradient-to-r py-2 from-[#C2996B] to-[#5C4933]">
+      <div class="bg-gradient-to-r py-4 from-[#C2996B] to-[#5C4933]">
         <p class="px-4 text-white leading-[110%] font-semibold text-[18px] sm:text-[24px] md:text-[32px] text-center">
           <?php echo strip_tags($datos_bajada) ?>
         </p>
@@ -298,7 +298,7 @@ $eq_bajada_cita = !empty($equipo['bajada_cita']) ? $equipo['bajada_cita'] : '';
           <?php
           $foto = (!empty($m['Foto']) && !empty($m['Foto']['url'])) ? esc_url($m['Foto']['url']) : '';
           ?>
-          <div class="overflow-clip rounded-[12px] group">
+          <a class="overflow-clip rounded-[12px] group block decoration-none" href="<?php echo $m['vcf']['url'] ?>" download="href="<?php echo $m['vcf']['title'] ?>">
             <?php if ($foto): ?>
               <img 
                 class="h-[340px] sm:h-[380px] md:h-[430px] w-full object-cover
@@ -318,7 +318,7 @@ $eq_bajada_cita = !empty($equipo['bajada_cita']) ? $equipo['bajada_cita'] : '';
                 <p class="text-white text-[13px] sm:text-[14px] text-center"><?php echo esc_html($m['cargo']); ?></p>
               <?php endif; ?>
             </div>
-          </div>
+          </a>
         <?php endforeach; ?>
       </div>
     <?php endif; ?>

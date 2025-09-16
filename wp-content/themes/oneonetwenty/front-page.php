@@ -24,7 +24,7 @@ $hero_bg = !empty($hero['fondo']) && !empty($hero['fondo']['url'])
   ? ' style="background-image:url(\'' . esc_url($hero['fondo']['url']) . '\'); background-size:cover; background-position:center;"'
   : '';
 ?>
-<section class="-mt-[71px] py-[80px] md:py-[120px] h-auto md:h-[1030px] bg-grey-400 p-4" <?php echo $hero_bg; ?>>
+<section class="md:-mt-[71px] py-[80px] md:py-[120px] h-auto md:h-[1030px] bg-grey-400 p-4" <?php echo $hero_bg; ?>>
   <div class="max-w-[1120px] mx-auto px-4">
     <div>
       <div class="max-w-[850px]">
@@ -47,7 +47,7 @@ $hero_bg = !empty($hero['fondo']) && !empty($hero['fondo']['url'])
 
         <?php if (!empty($hero['boton']) && !empty($hero['boton']['url'])): ?>
           <a
-            class="bg-gradient-to-b py-4 sm:py-5 md:py-6 px-6 sm:px-10 md:px-12 rounded-lg inline-block text-white font-black uppercase mt-8 from-[#132148] to-[#2E50AE] text-[14px] sm:text-[16px]
+            class="bg-gradient-to-b py-4 sm:py-5 md:py-6 px-6 sm:px-10 md:px-12 rounded-lg inline-block text-white font-black uppercase mt-8 from-[#132148] to-[#2E50AE] text-[16px]
               transition-all duration-300 ease-out
               motion-safe:hover:-translate-y-0.5 motion-safe:hover:scale-[1.01]
               hover:brightness-110 hover:shadow-lg
@@ -80,10 +80,10 @@ $datos_bajada = $datos['bajada'];
           data-locale="es-AR"
           data-duration="1500"
           data-decimals="0"
-          class="text-center md:text-left text-[120px] sm:text-[180px] md:text-[250px] leading-[74%] block md:w-[270px] font-black -tracking-[8px] sm:-tracking-[16px] md:-tracking-[24px] bg-gradient-to-b from-[#0a1a3f] to-[#1e48a8] text-transparent bg-clip-text">
+          class="text-center md:text-left text-[180px] md:text-[250px] leading-[74%] block md:w-[270px] font-black -tracking-[8px] sm:-tracking-[16px] md:-tracking-[24px] bg-gradient-to-b from-[#0a1a3f] to-[#1e48a8] text-transparent bg-clip-text">
           0
         </span>
-        <span class="text-center text-[48px] sm:text-[72px] md:text-[100px] -mt-4 sm:-mt-8 leading-[70%] block font-medium text-[#C2996B] -tracking-[0.5%]"><?php echo $datos_de; ?></span>
+        <span class="text-center text-[72px] md:text-[100px] -mt-4 sm:-mt-8 leading-[70%] block font-medium text-[#C2996B] -tracking-[0.5%]"><?php echo $datos_de; ?></span>
       </div>
       <?php if ($datos_img): ?>
         <div class="md:ps-[68px] py-[20px] md:py-[40px] md:border-l-2 md:border-[#132148]">
@@ -329,7 +329,7 @@ $eq_bajada_cita = !empty($equipo['bajada_cita']) ? $equipo['bajada_cita'] : '';
       </h5>
     <?php endif; ?>
     <?php if ($eq_bajada_cita) : ?>
-      <p class="text-[#132148]/80 max-w-[700px] mx-auto text-center leading-[160%] md:leading-[120%] mt-4 px-2">
+      <p class="text-[#132148]/80 max-w-[700px] mx-auto text-center leading-[110%] md:leading-[120%] mt-4 px-2">
         <?php echo strip_tags($eq_bajada_cita) ?>
       </p>
     <?php endif; ?>
